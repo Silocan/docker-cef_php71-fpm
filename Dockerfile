@@ -18,7 +18,8 @@ RUN apt-get update && \
         git \
         subversion \
         unzip \
-        wget && \
+        wget \
+        nano && \
     rm -rf /var/lib/apt/lists/* && \
     wget https://getcomposer.org/composer.phar -O /usr/local/bin/composer && \
     chmod a+rx /usr/local/bin/composer
@@ -54,7 +55,8 @@ RUN docker-php-ext-configure mysqli && \
     docker-php-ext-install ftp && \
     docker-php-ext-install sockets && \
     docker-php-ext-install calendar && \
-    docker-php-ext-install bcmath
+    docker-php-ext-install bcmath && \
+    docker-php-ext-install opcache
 
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 
